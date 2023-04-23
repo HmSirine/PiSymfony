@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="author" content="Untree.co">
+        <link rel="shortcut icon" href="favicon.png">
+        <meta name="description" content="" />
+	    <meta name="keywords" content="bootstrap, bootstrap4" />
+
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        {% block stylesheets %}
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Source+Serif+Pro:wght@400;700&display=swap" rel="stylesheet">
+
+            <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+            <link href="{{ asset('assets/css/owl.carousel.min.css') }}" rel="stylesheet">
+            <link href="{{ asset('assets/css/owl.theme.default.min.css') }}" rel="stylesheet">
+            <link href="{{ asset('assets/css/jquery.fancybox.min.css') }}" rel="stylesheet">
+            <link href="{{ asset('assets/fonts/icomoon/style.css') }}" rel="stylesheet">
+            <link href="{{ asset('assets/fonts/flaticon/font/flaticon.css') }}" rel="stylesheet">
+            <link href="{{ asset('assets/css/daterangepicker.css') }}" rel="stylesheet">
+            <link href="{{ asset('assets/css/aos.css') }}" rel="stylesheet">
+            <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Source+Serif+Pro:wght@400;700&display=swap" rel="stylesheet">
+<link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/css/tailwind.output.css" />
+        {% endblock %}
+
+        {% block javascripts %}
+        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+            <script src="{{ asset('assets/js/jquery-3.4.1.min.js') }}"></script>
+            <script src="{{ asset('assets/js/popper.min.js') }}"></script>
+            <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+            <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
+            <script src="{{ asset('assets/js/jquery.animateNumber.min.js') }}"></script>
+            <script src="{{ asset('assets/js/jquery.waypoints.min.js') }}"></script>
+            <script src="{{ asset('assets/js/jquery.fancybox.min.js') }}"></script>
+            <script src="{{ asset('assets/js/aos.js') }}"></script>
+            <script src="{{ asset('assets/js/moment.min.js') }}"></script>
+            <script src="{{ asset('assets/js/daterangepicker.js') }}"></script>
+            <script src="{{ asset('assets/js/typed.js') }}"></script>
+            <script>
+                $(function() {
+                    var slides = $('.slides'),
+                        images = slides.find('img');
+
+                    images.each(function(i) {
+                        $(this).attr('data-id', i + 1);
+                    })
+
+                    var typed = new Typed('.typed-words', {
+                        strings: ["San Francisco."," Paris."," New Zealand.", " Maui.", " London."],
+                        typeSpeed: 80,
+                        backSpeed: 80,
+                        backDelay: 4000,
+                        startDelay: 1000,
+                        loop: true,
+                        showCursor: true,
+                        preStringTyped: (arrayPos, self) => {
+                            arrayPos++;
+                            console.log(arrayPos);
+                            $('.slides img').removeClass('active');
+                            $('.slides img[data-id="'+arrayPos+'"]').addClass('active');
+                        }
+
+                    });
+                })
+            </script>
+            <script src="{{ asset('assets/js/custom.js') }}"></script>
+             <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+        <script src="{{ asset('assets/js/init-alpine.js') }}"></script>
+   
+
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+    </body>
+</html>
+
+
